@@ -1,0 +1,41 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/BanHanh
+    username: root
+    password: Skyno123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: true
+
+
+
+momo:
+  partner-code: MOMOLRJZ20181206
+  return-url: http://localhost:3000/
+  end-point: https://test-payment.momo.vn/v2/gateway/api/create
+  ipn-url: http://localhost:8081/api/momo/ipn-handler
+  access-key: mTCKt9W3eU1m39TW
+  secret-key: SetA5RDnLHvt51AULf51DyauxUo3kDU6
+  request-type: captureWallet
+
+vnpay:
+  tmn-code: KGF1Y0GH
+  hash-secret: 1MZ0FNLU2WHZ6Z10NRB88IOB7R0ZH958
+  vnp-command: pay
+  vnp-order-type : other
+  vnp-version: 2.1.0
+  payment-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+  return-url: http://localhost:8081/api/vnpay/return
+  ipn-url: http://localhost:8081/api/vnpay/ipn
+
+n8n:
+  url-n8n: http://localhost:5678/webhook-test/my-webhook
+  url-n8n-production: http://localhost:5678/webhook/my-webhook
+
